@@ -1,7 +1,7 @@
 WIDGET = {
     CONFIG: {
         "modules": "01234",
-        "background": 5,
+        "background": 3,
         "tmpColor": "ffffff",
         "tmpSize": 16,
         "cityColor": "ffffff",
@@ -18,6 +18,6 @@ WIDGET = {
         "horizontal": "center",
         "left": "210",
         "top": 10,
-        "key": "DdslWV6wFT"
+        "key": "Yvhgp9WVPD"
     }
 }
