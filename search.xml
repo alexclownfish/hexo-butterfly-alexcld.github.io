@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>解决oracle不能上下箭头翻历史命令问题</title>
+      <link href="posts/3246.html"/>
+      <url>posts/3246.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/css/APlayer.min.css"><script src="/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/js/Meting.min.js"></script><h3 id="解决命令行中上下键不能翻历史命令的问题"><a href="#解决命令行中上下键不能翻历史命令的问题" class="headerlink" title="解决命令行中上下键不能翻历史命令的问题"></a>解决命令行中上下键不能翻历史命令的问题</h3><p>安装过程：<br>将软件拷贝到/root下<br>挂载光盘到/media/mnt下</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#mkdir &#x2F;media&#x2F;mnt</span><br><span class="line">#mount &#x2F;dev&#x2F;cdrom &#x2F;media&#x2F;cdrom</span><br><span class="line">#vim &#x2F;etc&#x2F;yum.repos.d&#x2F;test.repo</span><br><span class="line">[aaa]</span><br><span class="line">name&#x3D;aaa</span><br><span class="line">baseurl&#x3D;file:&#x2F;&#x2F;&#x2F;media&#x2F;cdrom&#x2F;</span><br><span class="line">enabled&#x3D;1</span><br><span class="line">gpgcheck&#x3D;0</span><br></pre></td></tr></table></figure><p>添加本地yum源</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@oracle ~]## yum -y install readline*</span><br><span class="line">[root@oracle ~]# cd &#x2F;opt</span><br><span class="line">[root@oracle opt]# tar zxvf rlwrap-0.42.tar.gz</span><br><span class="line">[root@oracle opt]# cd rlwrap-0.42&#x2F;</span><br><span class="line">[root@oracle rlwrap-0.42]# .&#x2F;configure &amp;&amp; make &amp;&amp; make install</span><br></pre></td></tr></table></figure><p>这样就可以使用 rlwarp 了</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@oracle rlwrap-0.42]# su oracle</span><br><span class="line">[oracle@oracle rlwrap-0.42]$ vi ~oracle&#x2F;.bash_profile</span><br><span class="line">[oracle@oracle rlwrap-0.42]$ vi ~&#x2F;.bashrc</span><br></pre></td></tr></table></figure><p>在末尾添加</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">alias sqlplus&#x3D;&#39;rlwrap sqlplus&#39;</span><br><span class="line">alias rman&#x3D;&#39;rlwrap rman&#39;</span><br><span class="line">alias lsnrctl&#x3D;&#39;rlwrap lsnrctl&#39;</span><br></pre></td></tr></table></figure><p>保存退出<br>使文件立即生效</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[oracle@oracle opt]$ source ~oracle&#x2F;.bash_profile</span><br><span class="line">[oracle@oracle rlwrap-0.42]$ source ~oracle&#x2F;.bashrc </span><br></pre></td></tr></table></figure><p>安装完rlwrap后，有些可能使用SecureCRT会再次出现乱码，这是修改一下SecureCRT的字符编码：<br>【选项】-&gt;【会话选项】-&gt;【终端】-&gt;【外观】+</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> oracle </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 解决oracle不能上下箭头翻历史命令问题 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>docker pull &amp; docker search 报错：index.docker.io i/o timeout</title>
       <link href="posts/8546.html"/>
       <url>posts/8546.html</url>
