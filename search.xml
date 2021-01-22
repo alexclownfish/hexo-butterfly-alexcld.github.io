@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>让Linux虚拟机连接宿主机并且能够上网</title>
+      <link href="posts/2356.html"/>
+      <url>posts/2356.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/css/APlayer.min.css"><script src="/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/js/Meting.min.js"></script><p>系统：centos7.6<br>1：设置虚拟机的IP地址<br>[root@localhost ~]# vi /etc/sysconfig/network-scripts/ifcfg-eth0<br>TYPE=Ethernet<br>BOOTPROTO=static<br>DEFROUTE=yes<br>PEERDNS=yes<br>PEERROUTES=yes<br>IPV4_FAILURE_FATAL=no<br>IPADDR=192.168.10.101<br>NETMASK=255.255.255.0<br>GATEWAY=192.168.10.254<br>DNS1=192.168.10.254<br>#IPV6INIT=yes<br>#IPV6_AUTOCONF=yes<br>#IPV6_DEFROUTE=yes<br>#IPV6_PEERDNS=yes<br>#IPV6_PEERROUTES=yes<br>#IPV6_FAILURE_FATAL=no<br>#IPV6_ADDR_GEN_MODE=stable-privacy<br>NAME=ens33<br>UUID=53739d53-97dd-47bf-9be1-8dd323d36030<br>DEVICE=ens33<br>ONBOOT=yes</p><p>注意：这里的ip地址可以随意设置，但要和后面的地址保持一致</p><p>2：将该虚拟机的网卡设置为NAT桥接模式，（默认为NAT模式）</p><p><img src="https://img-blog.csdnimg.cn/20210122094220849.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTUwOTU4Mg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><p>3：VMware中打开虚拟网络编辑器，设置vmnet8的子网IP，要和第一步中保持一致<br><img src="https://img-blog.csdnimg.cn/20210122094241410.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTUwOTU4Mg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><p>4：在上图中打开vmnet8的“NAT设置”，将网关IP改为192.168.10.254，要和第一步中保持一致<br><img src="https://img-blog.csdnimg.cn/20210122094303425.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTUwOTU4Mg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><p>5：修改桥接模式</p><p><img src="https://img-blog.csdnimg.cn/20210122094639316.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTUwOTU4Mg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><p>6：在宿主机上，给vmnet8设置一个IP，IP地址是192.168.10.0网络的，不要和其他IP冲突</p><p><img src="https://img-blog.csdnimg.cn/20210122094440173.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTUwOTU4Mg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><p>7：在linux上分别测试与宿主机vmnet8，和互联网是否通信<br><img src="https://img-blog.csdnimg.cn/20210122095044381.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTUwOTU4Mg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 让Linux虚拟机连接宿主机并且能够上网 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>oracle常用sql语句集合</title>
       <link href="posts/1651.html"/>
       <url>posts/1651.html</url>
