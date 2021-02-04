@@ -129,7 +129,7 @@ const calendar = new Vue({
         }
     })
 
-    let githubapiurl = "https://githubapi.ryanchristian.dev/user/"+calendar.user
+    let githubapiurl = "https://githubapi.ryanchristian.dev/alexclownfish/"+calendar.user
 
     $(function () {
         $.ajax({
