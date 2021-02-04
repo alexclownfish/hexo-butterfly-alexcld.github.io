@@ -129,7 +129,7 @@ const calendar = new Vue({
         }
     })
 
-    let githubapiurl = "https://github.com/alexclownfish/hexo-gitcalendar"+calendar.user
+    let githubapiurl = "https://githubapi.ryanchristian.dev/user/"+calendar.user
 
     $(function () {
         $.ajax({
